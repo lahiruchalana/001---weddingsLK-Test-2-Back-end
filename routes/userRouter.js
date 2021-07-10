@@ -1,7 +1,8 @@
 // const router = require('express').Router()
 import express from 'express';
-import { register, login, logout, refreshToken, getUser, addCart, history } from '../controllers/userCtrl.js'
+import { register, login, logout, refreshToken, getUser, addCart, history, getUsers } from '../controllers/userCtrl.js'
 import auth from '../middleware/auth.js'
+import authAdmin from '../middleware/authAdmin.js'
 
 var router = express.Router();
 
@@ -19,5 +20,13 @@ router.patch('/addcart', auth, addCart)
 
 router.get('/history', auth, history)
 
+//////////////////////////////////////////////////////////////////////////////
+////////////////////////// get User's info to front-end routing //////////////
+//////////////////////////////////////////////////////////////////////////////
+router.route('/users')
+    .get(getUsers)
+//////////////////////////////////////////////////////////////////////////////
+////////////////////////// get User's info to front-end routing //////////////
+//////////////////////////////////////////////////////////////////////////////
 
 export default router
