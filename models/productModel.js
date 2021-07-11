@@ -18,6 +18,10 @@ const productSchema = mongoose.Schema({
         trim: true,
         required: true
     },
+    max_price:{
+        type: Number,
+        trim: true,
+    },
     description:{
         type: String,
         required: true
@@ -25,6 +29,26 @@ const productSchema = mongoose.Schema({
     content:{
         type: String,
         required: true
+    },
+    address_line_1:{
+        type: String,
+        trim: true,
+        required: true
+    },
+    address_line_2:{
+        type: String,
+    },
+    address_line_3:{
+        type: String,
+    },
+    other_services:{
+        type: String,
+    },
+    contact_number_1:{
+        type: Number,
+    },
+    contact_number_2:{
+        type: Number,
     },
     images:{
         type: Object,

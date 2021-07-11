@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken'
 
 export const register = async (req, res) =>{
         try {
-            const {name, email, password} = req.body;
+            const {name, email, contactFirst, contactSecond, password} = req.body;
 
             const user = await Users.findOne({email})
             if(user) return res.status(400).json({msg: "The email already exists."})
@@ -17,7 +17,7 @@ export const register = async (req, res) =>{
             // Password Encryption
             const passwordHash = await hash(password, 10)
             const newUser = new Users({
-                name, email, password: passwordHash
+                name, email, contactFirst, contactSecond, password: passwordHash
             })
 
             // Save mongodb

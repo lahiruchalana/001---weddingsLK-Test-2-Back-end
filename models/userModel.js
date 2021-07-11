@@ -15,6 +15,14 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    contactFirst:{
+        type: Number,
+        default: 0
+    },
+    contactSecond:{
+        type: Number,
+        default: 0
+    },
     role: {
         type: Number,
         default: 0
