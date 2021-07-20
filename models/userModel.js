@@ -30,6 +30,14 @@ const userSchema = mongoose.Schema({
     cart: {
         type: Array,
         default: []
+    },
+    confirmed_vendors: {
+        type: Array,
+        default: []
+    },
+    wish_to_buy: {
+        type: Array,
+        default: []
     }
 }, {
     timestamps: true

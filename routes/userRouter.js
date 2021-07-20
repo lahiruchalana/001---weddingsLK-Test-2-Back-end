@@ -1,6 +1,6 @@
 // const router = require('express').Router()
 import express from 'express';
-import { register, login, logout, refreshToken, getUser, addCart, history, getUsers } from '../controllers/userCtrl.js'
+import { register, login, logout, refreshToken, getUser, addCart, history, getUsers, addWishToBuy, addConfirmedVendors } from '../controllers/userCtrl.js'
 import auth from '../middleware/auth.js'
 import authAdmin from '../middleware/authAdmin.js'
 
@@ -28,5 +28,9 @@ router.route('/users')
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////// get User's info to front-end routing //////////////
 //////////////////////////////////////////////////////////////////////////////
+
+router.patch('/addwish_to_buy', auth, addWishToBuy)
+
+router.patch('/addconfirmed_vendors', auth, addConfirmedVendors)
 
 export default router

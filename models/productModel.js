@@ -30,6 +30,22 @@ const productSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    content_2:{
+        type: String,
+        required: true
+    },
+    content_3:{
+        type: String,
+        required: true
+    },
+    content_4:{
+        type: String,
+        required: true
+    },
+    content_5:{
+        type: String,
+        required: true
+    },
     address_line_1:{
         type: String,
         trim: true,

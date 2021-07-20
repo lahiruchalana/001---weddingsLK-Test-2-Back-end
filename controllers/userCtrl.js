@@ -211,4 +211,33 @@ export const getUsers = async(req, res) =>{
 ////////////////////////// get ALL User's info to front end //////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
+export const addConfirmedVendors = async (req, res) =>{
+    try {
+        const user = await Users.findById(req.user.id)
+        if(!user) return res.status(400).json({msg: "User does not exist."})
+
+        await Users.findOneAndUpdate({_id: req.user.id}, {
+            confirmed_vendors: req.body.confirmed_vendors
+        })
+
+        return res.json({msg: "Added to confirmed services of vendors"})
+    } catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
+};
+
+export const addWishToBuy = async (req, res) =>{
+    try {
+        const user = await Users.findById(req.user.id)
+        if(!user) return res.status(400).json({msg: "User does not exist."})
+
+        await Users.findOneAndUpdate({_id: req.user.id}, {
+            wish_to_buy: req.body.wish_to_buy
+        })
+
+        return res.json({msg: "Added to Wish to buy Cart"})
+    } catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
+};
 

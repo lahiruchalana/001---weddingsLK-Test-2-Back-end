@@ -66,7 +66,7 @@ export const getProducts = async(req, res) =>{
 
 export const createProduct = async(req, res) =>{
     try {
-        const {product_id, title, price, max_price, description, content, address_line_1, address_line_2, address_line_3, other_services, contact_number_1, contact_number_2, images, category} = req.body;
+        const {product_id, title, price, max_price, description, content, content_2, content_3, content_4, content_5, address_line_1, address_line_2, address_line_3, other_services, contact_number_1, contact_number_2, images, category} = req.body;
         if(!images) return res.status(400).json({msg: "No image upload"})
 
         const product = await Products.findOne({product_id})
@@ -74,7 +74,7 @@ export const createProduct = async(req, res) =>{
             return res.status(400).json({msg: "This product already exists."})
 
         const newProduct = new Products({
-            product_id, title: title.toLowerCase(), price, max_price, description, content, address_line_1: address_line_1.toLowerCase(), address_line_2, address_line_3, other_services, contact_number_1, contact_number_2, images, category
+            product_id, title: title.toLowerCase(), price, max_price, description, content, content_2, content_3, content_4, content_5, address_line_1: address_line_1.toLowerCase(), address_line_2, address_line_3, other_services, contact_number_1, contact_number_2, images, category
         })
 
         await newProduct.save()
@@ -96,11 +96,11 @@ export const deleteProduct = async(req, res) =>{
 
 export const updateProduct = async(req, res) =>{
     try {
-        const {title, price, max_price, description, content, address_line_1, address_line_2, address_line_3, other_services, contact_number_1, contact_number_2, images, category} = req.body;
+        const {title, price, max_price, description, content, content_2, content_3, content_4, content_5, address_line_1, address_line_2, address_line_3, other_services, contact_number_1, contact_number_2, images, category} = req.body;
         if(!images) return res.status(400).json({msg: "No image upload"})
 
         await Products.findOneAndUpdate({_id: req.params.id}, {
-            title: title.toLowerCase(), price, max_price, description, content, address_line_1: address_line_1.toLowerCase(), address_line_2, address_line_3, other_services, contact_number_1, contact_number_2, images, category
+            title: title.toLowerCase(), price, max_price, description, content, content_2, content_3, content_4, content_5, address_line_1: address_line_1.toLowerCase(), address_line_2, address_line_3, other_services, contact_number_1, contact_number_2, images, category
         })
 
         res.json({msg: "Updated a Product"})

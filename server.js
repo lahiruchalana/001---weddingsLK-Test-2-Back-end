@@ -13,48 +13,10 @@ import userRouter from './routes/userRouter.js';
 import categoryRouter from './routes/categoryRouter.js';
 import upload from './routes/upload.js';
 import productRouter from './routes/productRouter.js';
+import weddingPlanRouter from './routes/weddingPlanRouter.js'
 import paymentRouter from './routes/paymentRouter.js';
 
 import { join } from 'path'
-
-/////end of Router setting (often what we change here)
-
-// import express, { json, static } from 'express'
-// import { connect } from 'mongoose'
-// import cors from 'cors'
-// import fileUpload from 'express-fileupload'
-// import cookieParser from 'cookie-parser'
-// import { join } from 'path'
-
-
-// const app = express()
-// app.use(json())
-// app.use(cookieParser())
-// app.use(cors())
-// app.use(fileUpload({
-//     useTempFiles: true
-// }))
-
-// Routes
-// app.use('/user', require('./routes/userRouter'))
-// app.use('/api', require('./routes/categoryRouter'))
-// app.use('/api', require('./routes/upload'))
-// app.use('/api', require('./routes/productRouter'))
-// app.use('/api', require('./routes/paymentRouter'))
-
-
-
-// Connect to mongodb
-// const URI = process.env.MONGODB_URL
-// connect(URI, {
-//     useCreateIndex: true,
-//     useFindAndModify: false,
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// }, err =>{
-//     if(err) throw err;
-//     console.log('Connected to MongoDB')
-// })
 
 
 
@@ -64,8 +26,6 @@ if(process.env.NODE_ENV === 'production'){
         res.sendFile(join(__dirname, 'client', 'build', 'index.html'))
     })
 }
-
-
 
 
 // app configuration
@@ -81,16 +41,6 @@ app.listen(PORT, () =>{
     console.log('Server is running on port', PORT)
 })
 
-
-// listner
-// app.listen(port, () => console.log(`listening on localhost: ${port}`));
-
-// DB configuration
-// mongoose.connect(connection_url, {
-//     useNewUrlParser: true,
-//     useCreateIndex: true,
-//     useUnifiedTopology: true,
-// });
 
 mongoose.connection.once('open', () => (
     console.log('DB Connected')
@@ -113,21 +63,11 @@ app.use(bodyParser.json({ limit: '30mb', extended: true }))
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 
 
-
-
-// app.use('/user', require('./routes/userRouter'))
-// app.use('/api', require('./routes/categoryRouter'))
-// app.use('/api', require('./routes/upload'))
-// app.use('/api', require('./routes/productRouter'))
-// app.use('/api', require('./routes/paymentRouter'))
-
-//////start of Router setting (often what we change here)
-
-
 app.use('/user', userRouter);
 app.use('/api', categoryRouter);
 app.use('/api', upload);
 app.use('/api', productRouter);
+app.use('/api', weddingPlanRouter);
 app.use('/api', paymentRouter);
 
 
