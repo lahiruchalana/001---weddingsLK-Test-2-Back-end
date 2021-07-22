@@ -1,6 +1,6 @@
 // const router = require('express').Router()
 import express from 'express';
-import { register, login, logout, refreshToken, getUser, addCart, history, getUsers, addWishToBuy, addConfirmedVendors } from '../controllers/userCtrl.js'
+import { register, login, logout, refreshToken, getUser, addCart, history, getUsers, addWishToBuy, addConfirmedVendors, addConfirmedWeddingPlans, addWishToBuyWeddingPlans } from '../controllers/userCtrl.js'
 import auth from '../middleware/auth.js'
 import authAdmin from '../middleware/authAdmin.js'
 
@@ -32,5 +32,9 @@ router.route('/users')
 router.patch('/addwish_to_buy', auth, addWishToBuy)
 
 router.patch('/addconfirmed_vendors', auth, addConfirmedVendors)
+
+router.patch('/addwish_to_buy_wedding_plans', auth, addWishToBuyWeddingPlans)
+
+router.patch('/addconfirmed_wedding_plans', auth, addConfirmedWeddingPlans)
 
 export default router
