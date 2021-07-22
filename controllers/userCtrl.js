@@ -241,3 +241,34 @@ export const addWishToBuy = async (req, res) =>{
     }
 };
 
+
+
+export const addConfirmedWeddingPlans = async (req, res) =>{
+    try {
+        const user = await Users.findById(req.user.id)
+        if(!user) return res.status(400).json({msg: "User does not exist."})
+
+        await Users.findOneAndUpdate({_id: req.user.id}, {
+            confirmed_wedding_plans: req.body.confirmed_wedding_plans
+        })
+
+        return res.json({msg: "Wedding Plan Added to Confirmed Wedding Plan page in Your Profile. please check Your Profile."})
+    } catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
+};
+
+export const addWishToBuyWeddingPlans = async (req, res) =>{
+    try {
+        const user = await Users.findById(req.user.id)
+        if(!user) return res.status(400).json({msg: "User does not exist."})
+
+        await Users.findOneAndUpdate({_id: req.user.id}, {
+            wish_to_buy_wedding_plans: req.body.wish_to_buy_wedding_plans
+        })
+
+        return res.json({msg: "Added to Wish to buy Cart"})
+    } catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
+};

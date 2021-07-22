@@ -38,6 +38,14 @@ const userSchema = mongoose.Schema({
     wish_to_buy: {
         type: Array,
         default: []
+    },
+    confirmed_wedding_plans: {
+        type: Array,
+        default: []
+    },
+    wish_to_buy_wedding_plans: {
+        type: Array,
+        default: []
     }
 }, {
     timestamps: true
