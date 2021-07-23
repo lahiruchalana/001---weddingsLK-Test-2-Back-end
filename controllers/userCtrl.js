@@ -131,8 +131,6 @@ export const history = async(req, res) =>{
         }
     };
 
-
-
 const createAccessToken = (user) =>{
     return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {expiresIn: '11m'})
 };
@@ -272,3 +270,32 @@ export const addWishToBuyWeddingPlans = async (req, res) =>{
         return res.status(500).json({msg: err.message})
     }
 };
+
+
+// export const updateCategory = async(req, res) =>{
+//     try {
+//         const {name} = req.body;
+//         await Category.findOneAndUpdate({_id: req.params.id}, {name})
+
+//         res.json({msg: "Updated a category"})
+//     } catch (err) {
+//         return res.status(500).json({msg: err.message})
+//     }
+
+// };
+
+// export const adminAssigne = async(req, res) =>{
+//     try {
+//         const {emp_name, progress} = req.body;
+
+//         const newProduct = new Products({
+//             product_id, 
+//         })
+
+//         await newProduct.save()
+//         res.json({msg: "Created a product"})
+
+//     } catch (err) {
+//         return res.status(500).json({msg: err.message})
+//     }
+// };

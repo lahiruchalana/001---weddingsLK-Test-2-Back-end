@@ -27,6 +27,14 @@ const userSchema = mongoose.Schema({
         type: Number,
         default: 0
     },
+    progress: {
+        type: Number,
+        default: 0
+    },
+    emp_name: {
+        type: String,
+        trim: true
+    },
     cart: {
         type: Array,
         default: []
