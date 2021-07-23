@@ -80,17 +80,17 @@ const weddingPlanSchema = mongoose.Schema({
     vendor_3:{
         type: String,
         trim: true,
-        required: true
+        
     },
     category_3:{
         type: String,
         trim: true,
-        required: true
+        
     },
     price_3:{
         type: Number,
         trim: true,
-        required: true
+        
     },
     max_price_3:{
         type: Number,
@@ -98,12 +98,12 @@ const weddingPlanSchema = mongoose.Schema({
     },
     description_3:{
         type: String,
-        required: true
+        
     },
     address_3:{
         type: String,
         trim: true,
-        required: true
+        
     },
     images_3:{
         type: Object,
