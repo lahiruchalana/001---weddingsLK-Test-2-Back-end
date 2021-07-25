@@ -1,6 +1,6 @@
 // const router = require('express').Router()
 import express from 'express';
-import { register, login, logout, refreshToken, getUser, addCart, history, getUsers, addWishToBuy, addConfirmedVendors, addConfirmedWeddingPlans, addWishToBuyWeddingPlans } from '../controllers/userCtrl.js'
+import { register, login, logout, refreshToken, getUser, addCart, history, getUsers, addWishToBuy, addConfirmedVendors, addConfirmedWeddingPlans, addWishToBuyWeddingPlans, updateUser, updateUserProgress } from '../controllers/userCtrl.js'
 import auth from '../middleware/auth.js'
 import authAdmin from '../middleware/authAdmin.js'
 
@@ -29,11 +29,11 @@ router.route('/users')
 // router.route('/users_update')
 //     .post(getUsers)
 
-// router.route('/category/:id')
-//     // .delete(auth, authAdmin, deleteCategory)
-//     .put(auth, authAdmin, updateCategory)
+router.route('/users/:id')
+    .put(auth, authAdmin, updateUser)
 
-    
+router.route('/users/:id/progress')
+    .put(auth, authAdmin, updateUserProgress)
 //////////////////////////////////////////////////////////////////////////////
 ////////////////////////// get User's info to front-end routing //////////////
 //////////////////////////////////////////////////////////////////////////////
