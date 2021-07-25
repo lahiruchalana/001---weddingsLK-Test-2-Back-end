@@ -28,12 +28,16 @@ const userSchema = mongoose.Schema({
         default: 0
     },
     progress: {
-        type: Number,
-        default: 0
+        type: String,
+        trim: true
     },
     emp_name: {
         type: String,
         trim: true
+    },
+    emp_contact: {
+        type: Number,
+        default: 0
     },
     cart: {
         type: Array,

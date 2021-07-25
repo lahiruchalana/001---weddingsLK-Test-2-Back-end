@@ -272,17 +272,29 @@ export const addWishToBuyWeddingPlans = async (req, res) =>{
 };
 
 
-// export const updateCategory = async(req, res) =>{
-//     try {
-//         const {name} = req.body;
-//         await Category.findOneAndUpdate({_id: req.params.id}, {name})
+export const updateUser = async(req, res) =>{
+    try {
+        const {emp_name, emp_contact, progress} = req.body;
+        await Users.findOneAndUpdate({_id: req.params.id}, {emp_name, emp_contact, progress})
 
-//         res.json({msg: "Updated a category"})
-//     } catch (err) {
-//         return res.status(500).json({msg: err.message})
-//     }
+        res.json({msg: "Assigned a Employee for a Confirmed Customer"})
+    } catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
 
-// };
+};
+
+export const updateUserProgress = async(req, res) =>{
+    try {
+        const {progress} = req.body;
+        await Users.findOneAndUpdate({_id: req.params.id}, {progress})
+
+        res.json({msg: "Updated the Wedding Progress"})
+    } catch (err) {
+        return res.status(500).json({msg: err.message})
+    }
+
+};
 
 // export const adminAssigne = async(req, res) =>{
 //     try {
